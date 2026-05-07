@@ -315,7 +315,7 @@ def chatbot_api(request):
             for item in food_items:
                 menu_context += f"- {item.name}: Rs.{item.price} ({item.description})\n"
                 
-            prompt = f"You are a helpful, premium AI food concierge for 'Dhee Quick Bites'. The user says: '{user_message}'. Based on the following menu, recommend a dish, combo, or pairing that fits their mood/request. Be very polite, enthusiastic, and keep it concise (under 3 sentences).\n\n{menu_context}"
+            prompt = f"You are a helpful, premium AI food concierge for 'ClickFood Premium'. The user says: '{user_message}'. Based on the following menu, recommend a dish, combo, or pairing that fits their mood/request. Be very polite, enthusiastic, and keep it concise (under 3 sentences).\n\n{menu_context}"
             
             groq_api_key = os.getenv("GROQ_API_KEY")
             if not groq_api_key:
