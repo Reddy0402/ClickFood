@@ -77,13 +77,25 @@ TEMPLATES = [
 WSGI_APPLICATION = 'fooddelivery.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+import shutil
+
+original_db = BASE_DIR / 'db.sqlite3'
+tmp_db = Path('/tmp') / 'db.sqlite3'
+
+if os.environ.get('VERCEL') == '1' or not os.access(str(BASE_DIR), os.W_OK):
+    if original_db.exists() and not tmp_db.exists():
+        try:
+            shutil.copy2(original_db, tmp_db)
+        except Exception as e:
+            pass
+    db_path = tmp_db
+else:
+    db_path = original_db
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': db_path,
     }
 }
 
