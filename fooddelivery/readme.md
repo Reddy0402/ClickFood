@@ -4,6 +4,8 @@ A high-fidelity, state-of-the-art Django-based food delivery web application. **
 
 ---
 
+vercel-deployed link : https://click-food-cyan.vercel.app/
+
 ## 🌟 Key Features
 
 ### 🔐 1. Glassmorphic User Portal
