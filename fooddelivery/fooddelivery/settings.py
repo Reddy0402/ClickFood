@@ -83,7 +83,7 @@ original_db = BASE_DIR / 'db.sqlite3'
 tmp_db = Path('/tmp') / 'db.sqlite3'
 
 if os.environ.get('VERCEL') == '1' or not os.access(str(BASE_DIR), os.W_OK):
-    if original_db.exists() and not tmp_db.exists():
+    if original_db.exists():
         try:
             shutil.copy2(original_db, tmp_db)
         except Exception as e:
