@@ -1,0 +1,45 @@
+# ClickFood Premium - Git ignore Configuration
+
+# Security & Secrets
+.env
+*.env
+.env.*
+secrets.json
+*.key
+*.pem
+
+# Python Compiled Caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database
+db.sqlite3
+db.sqlite3-journal
+db.sqlite3-shm
+db.sqlite3-wal
+
+# Media & User Uploads
+media/
+food_images/
+static_collected/
+staticfiles/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Editor & OS Specific
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
