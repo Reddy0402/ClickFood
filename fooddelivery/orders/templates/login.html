@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClickFood Premium - Authenticate</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}?v=3.1">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'>
     <style>
@@ -304,12 +304,12 @@
 </head>
 <body style="background: #f8fafc; font-family: 'Inter', sans-serif; margin:0; padding:0;">
     <header style="background: #0f172a; box-shadow: 0 4px 20px rgba(0,0,0,0.4); padding: 20px 0; position: sticky; top: 0; z-index: 1000;">
-        <div style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="header-container" style="max-width: 1200px;">
             <div>
                 <a href="{% url 'home' %}" style="text-decoration: none;"><h1 style="margin: 0; font-size: 2.2rem; color: #fff; font-weight: 800; letter-spacing: -1px;">ClickFood <span style="font-weight:300; color:#94a3b8;">Premium</span></h1></a>
                 <p style="margin: 0; color: #ffeaea; font-size: 0.95rem;">Gourmet experiences, one click away.</p>
             </div>
-            <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="header-actions" style="display: flex; align-items: center;">
                 <button id="theme-toggle" onclick="toggleTheme()" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; padding: 12px 14px; cursor: pointer; transition: all 0.3s ease; color: #fff; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
                     <i class="fa-regular fa-moon" id="theme-icon" style="font-size: 1.5rem;"></i>
                 </button>
