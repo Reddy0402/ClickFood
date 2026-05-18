@@ -264,6 +264,9 @@ def address(request):
     return render(request, 'address.html', {'previous_addresses': previous_addresses})
 
 def confirm_order(request):
+    cart_items = Cart.objects.all()
+    if not cart_items:
+        return redirect('view_cart')
     address = request.session.get('delivery_address')
     if not address:
         return redirect('address')
