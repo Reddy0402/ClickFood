@@ -299,7 +299,7 @@ def dummy_payment(request):
         # Save to session history for guests
         request.session['last_used_address'] = address
         request.session.pop('delivery_address', None)
-        return JsonResponse({'redirect_url': '/my-orders/', 'message': 'Dummy Payment Successful!'})
+        return JsonResponse({'redirect_url': '/my-orders/', 'message': 'Order Placed!'})
     return JsonResponse({'message': 'Invalid request method!'}, status=400)
 
 @csrf_exempt
