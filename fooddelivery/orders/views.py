@@ -168,36 +168,36 @@ def delete_order(request, order_id):
             return JsonResponse({'message': 'Order not found!'}, status=404)
     return JsonResponse({'message': 'Invalid request method!'}, status=400)
 
-@csrf_exempt
-def create_stripe_session(request):
-    if request.method == 'POST':
-        cart_items = Cart.objects.all()
-        if not cart_items:
-            return JsonResponse({'message': 'Cart is empty!'}, status=400)
-        line_items = []
-        for item in cart_items:
-            line_items.append({
-                'price_data': {
-                    'currency': 'inr',
-                    'product_data': {
-                        'name': item.food_item.name,
-                    },
-                    'unit_amount': int(item.food_item.price * 100),
-                },
-                'quantity': item.quantity,
-            })
-        try:
-            session = stripe.checkout.Session.create(
-                payment_method_types=['card'],
-                line_items=line_items,
-                mode='payment',
-                success_url=request.build_absolute_uri('/cart/'),
-                cancel_url=request.build_absolute_uri('/cart/'),
-            )
-            return JsonResponse({'session_url': session.url})
-        except Exception as e:
-            return JsonResponse({'message': str(e)}, status=400)
-    return JsonResponse({'message': 'Invalid request method!'}, status=400)
+# @csrf_exempt
+# def create_stripe_session(request):
+#     if request.method == 'POST':
+#         cart_items = Cart.objects.all()
+#         if not cart_items:
+#             return JsonResponse({'message': 'Cart is empty!'}, status=400)
+#         line_items = []
+#         for item in cart_items:
+#             line_items.append({
+#                 'price_data': {
+#                     'currency': 'inr',
+#                     'product_data': {
+#                         'name': item.food_item.name,
+#                     },
+#                     'unit_amount': int(item.food_item.price * 100),
+#                 },
+#                 'quantity': item.quantity,
+#             })
+#         try:
+#             session = stripe.checkout.Session.create(
+#                 payment_method_types=['card'],
+#                 line_items=line_items,
+#                 mode='payment',
+#                 success_url=request.build_absolute_uri('/cart/'),
+#                 cancel_url=request.build_absolute_uri('/cart/'),
+#             )
+#             return JsonResponse({'session_url': session.url})
+#         except Exception as e:
+#             return JsonResponse({'message': str(e)}, status=400)
+#     return JsonResponse({'message': 'Invalid request method!'}, status=400)
 
 def address(request):
     previous_addresses = []
