@@ -1,1 +1,1 @@
-vercel deploed link : https://click-food-cyan.vercel.app/
+vercel deployed link : https://click-food-cyan.vercel.app/
