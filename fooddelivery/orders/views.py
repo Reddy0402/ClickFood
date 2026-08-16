@@ -326,7 +326,7 @@ def chatbot_api(request):
                 
             client = Groq(api_key=groq_api_key)
             completion = client.chat.completions.create(
-                model="llama-3.1-8b-instant",
+                model="openai/gpt-oss-120b",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.7,
                 max_tokens=150,
